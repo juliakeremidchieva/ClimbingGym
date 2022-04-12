@@ -9,5 +9,7 @@ namespace ClimbingGym.Infrastructure.Data
             : base(options)
         {
         }
+        public DbSet<Route> Routes { get; set; }
+        public DbSet<Sector> Sectors { get; set; }
     }
 }
