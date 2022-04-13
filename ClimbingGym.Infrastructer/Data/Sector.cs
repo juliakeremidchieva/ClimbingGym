@@ -9,6 +9,6 @@ namespace ClimbingGym.Infrastructure.Data
         [Required]
         [StringLength(2)]
         public string Name { get; set; }
-        public ICollection<Route> Routes { get; set; } = new List<Route>();
+        public IList<Route> Routes { get; set; } = new List<Route>();
     }
 }

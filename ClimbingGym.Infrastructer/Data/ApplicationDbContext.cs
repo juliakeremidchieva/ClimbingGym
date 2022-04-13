@@ -11,5 +11,8 @@ namespace ClimbingGym.Infrastructure.Data
         }
         public DbSet<Route> Routes { get; set; }
         public DbSet<Sector> Sectors { get; set; }
+        public DbSet<Coach> Coaches { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }

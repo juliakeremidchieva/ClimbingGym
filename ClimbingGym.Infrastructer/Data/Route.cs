@@ -8,7 +8,7 @@ namespace ClimbingGym.Infrastructure.Data
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
         [Required]
-        public Guid SectorId { get; set; } = Guid.NewGuid();
+        public Guid SectorId { get; set; } 
         [ForeignKey(nameof(SectorId))]
         public Sector Sector { get; set; }
         [Required]
