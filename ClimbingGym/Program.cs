@@ -1,5 +1,6 @@
 using ClimbingGym.Core.Constants;
 using ClimbingGym.Infrastructure.Data;
+using ClimbingGym.Infrastructure.Data.Identity;
 using ClimbingGym.ModelBinders;
 using Microsoft.AspNetCore.Identity;
 using Warehouse.ModelBinders;
@@ -9,12 +10,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddApplicationDbContexts(builder.Configuration);
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddAuthentication()
+    .AddFacebook(options =>
+    {
+        options.AppId = "811474476505002";//builder.Configuration.GetValue<string>("Facebook:AppId");
+        options.AppSecret = "511e188802bd6a8182c5a01370f84664"; //builder.Configuration.GetValue<string>("Facebook:AppSecret");
+    });
+
 builder.Services.AddControllersWithViews()
     .AddMvcOptions(options =>
     {
