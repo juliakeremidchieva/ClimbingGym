@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ClimbingGym.Core.Contracts;
-using ClimbingGym.Core.Services;
 using ClimbingGym.Infrastructure.Data;
-using ClimbingGym.Infrastructure.Data.Repositories;
+using ClimbingGym.Infrastructer.Data.Repositories;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -10,8 +8,8 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddApiServices(this IServiceCollection services)
         {
-            services.AddScoped<IApplicatioDbRepository, ApplicatioDbRepository>();
-            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IApplicationDbRepository, ApplicationDbRepository>();
+            //services.AddScoped<IOrderService, OrderService>();
 
             return services;
         }

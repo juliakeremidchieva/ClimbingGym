@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClimbingGym.Infrastructer\ClimbingGym.Infrastructer.csproj" />
+    <ProjectReference Include="..\ClimbingGym.Infrastructer\ClimbingGym.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

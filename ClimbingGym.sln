@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym", "ClimbingGym\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym.Core", "ClimbingGym.Core\ClimbingGym.Core.csproj", "{9AD55DD8-54E2-4077-A32E-5576837EE4CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym.Infrastructer", "ClimbingGym.Infrastructer\ClimbingGym.Infrastructer.csproj", "{6A622EC8-181D-4C7C-A950-9B7B929080E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym.Infrastructure", "ClimbingGym.Infrastructer\ClimbingGym.Infrastructure.csproj", "{6A622EC8-181D-4C7C-A950-9B7B929080E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingGym.Api", "ClimbingGym.Api\ClimbingGym.Api.csproj", "{25526F63-A732-42FF-BF6E-2E4C63D24DEE}"
 EndProject

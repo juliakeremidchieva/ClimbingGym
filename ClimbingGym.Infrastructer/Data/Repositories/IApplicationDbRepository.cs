@@ -2,7 +2,7 @@
 
 namespace ClimbingGym.Infrastructer.Data.Repositories
 {
-    public interface IApplicatioDbRepository : IRepository
+    public interface IApplicationDbRepository : IRepository
     {
     }
 }
