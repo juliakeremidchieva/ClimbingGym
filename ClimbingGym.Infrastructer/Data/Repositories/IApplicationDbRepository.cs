@@ -1,8 +1,9 @@
-﻿using ClimbingGym.Infrastructer.Data.Common;
+﻿using ClimbingGym.Infrastructure.Data.Common;
 
-namespace ClimbingGym.Infrastructer.Data.Repositories
+namespace ClimbingGym.Infrastructure.Data.Repositories
 {
     public interface IApplicationDbRepository : IRepository
     {
+
     }
 }

@@ -1,7 +1,11 @@
 ﻿using System.Linq.Expressions;
 
-namespace ClimbingGym.Infrastructer.Data.Common
+namespace ClimbingGym.Infrastructure.Data.Common
 {
+    /// <summary>
+    /// Abstraction of repository access methods
+    /// </summary>
+    /// <typeparam name="T">Repository type / db table</typeparam>
     public interface IRepository : IDisposable
     {
         /// <summary>

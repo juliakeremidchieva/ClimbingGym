@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
-namespace ClimbingGym.Infrastructer.Data.Common
+namespace ClimbingGym.Infrastructure.Data.Common
 {
     public abstract class Repository : IRepository
     {

@@ -20,8 +20,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 builder.Services.AddAuthentication()
     .AddFacebook(options =>
     {
-        options.AppId = "811474476505002";//builder.Configuration.GetValue<string>("Facebook:AppId");
-        options.AppSecret = "511e188802bd6a8182c5a01370f84664"; //builder.Configuration.GetValue<string>("Facebook:AppSecret");
+        options.AppId = builder.Configuration.GetValue<string>("Facebook:AppId"); 
+        options.AppSecret =builder.Configuration.GetValue<string>("Facebook:AppSecret");
     });
 
 builder.Services.AddControllersWithViews()
@@ -55,6 +55,10 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "Area",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

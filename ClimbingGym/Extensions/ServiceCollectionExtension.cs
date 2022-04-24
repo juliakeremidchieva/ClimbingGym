@@ -1,5 +1,7 @@
-﻿using ClimbingGym.Infrastructer.Data.Repositories;
+﻿using ClimbingGym.Core.Contracts;
+using ClimbingGym.Core.Services;
 using ClimbingGym.Infrastructure.Data;
+using ClimbingGym.Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -9,7 +11,7 @@ namespace Microsoft.Extensions.DependencyInjection
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<IApplicationDbRepository, ApplicationDbRepository>();
-        //services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserService, UserService>();
         //services.AddScoped<IFileService, FileService>();
         //services.AddScoped<ICategoryService, CategoryService>();
 

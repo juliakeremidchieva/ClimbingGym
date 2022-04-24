@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ClimbingGym.Infrastructure.Data;
-using ClimbingGym.Infrastructer.Data.Repositories;
+using ClimbingGym.Infrastructure.Data.Repositories;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
