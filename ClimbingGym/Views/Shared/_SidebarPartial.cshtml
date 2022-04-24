@@ -1,0 +1,33 @@
+﻿@using ClimbingGym.Infrastructure.Data.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+	<li class="nav-item">
+		<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.PageLink("Index", "Home", new { area = "" })" method="post">
+			<i class="fas fa-door-open"></i>
+			<button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
+		</form>
+	</li>
+}
+else
+{
+<li class="nav-item">
+	<form class="form-inline" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Link("Login", new { area = "" })" method="post">
+		<i class="fas fa-door-open"></i>
+		<button type="submit" class="nav-link btn btn-link text-dark">Log in</button>
+	</form>
+</li>
+<li class="nav-item">
+	<form class="form-inline" asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Url.Link("Register", new { area = "" })" method="post">
+		<i class="fas fa-door-open"></i>
+		<button type="submit" class="nav-link btn btn-link text-dark">Register</button>
+	</form>
+</li>
+}
+
+
+
