@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym.Core", "Climbin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym.Infrastructure", "ClimbingGym.Infrastructer\ClimbingGym.Infrastructure.csproj", "{6A622EC8-181D-4C7C-A950-9B7B929080E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingGym.Api", "ClimbingGym.Api\ClimbingGym.Api.csproj", "{25526F63-A732-42FF-BF6E-2E4C63D24DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimbingGym.Api", "ClimbingGym.Api\ClimbingGym.Api.csproj", "{25526F63-A732-42FF-BF6E-2E4C63D24DEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingGym.Test", "ClimbingGym.Test\ClimbingGym.Test.csproj", "{31C2D606-6C6F-44D2-BF37-3BAE7FE19492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{25526F63-A732-42FF-BF6E-2E4C63D24DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25526F63-A732-42FF-BF6E-2E4C63D24DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25526F63-A732-42FF-BF6E-2E4C63D24DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C2D606-6C6F-44D2-BF37-3BAE7FE19492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C2D606-6C6F-44D2-BF37-3BAE7FE19492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C2D606-6C6F-44D2-BF37-3BAE7FE19492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C2D606-6C6F-44D2-BF37-3BAE7FE19492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

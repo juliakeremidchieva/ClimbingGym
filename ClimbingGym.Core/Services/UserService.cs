@@ -15,6 +15,22 @@ namespace ClimbingGym.Core.Services
             repo = _repo;
         }
 
+        //public async Task<bool> DeleteUser(UserListViewModel model)
+        //{
+        //    bool result = false;
+        //    var user = await repo.GetByIdAsync<ApplicationUser>(model.Id);
+
+        //    if (user != null)
+        //    {
+        //        repo.Delete(user);
+
+        //        await repo.SaveChangesAsync();
+        //        result = true;
+        //    }
+
+        //    return result;
+        //}
+
         public async Task<ApplicationUser> GetUserById(string id)
         {
             return await repo.GetByIdAsync<ApplicationUser>(id);
