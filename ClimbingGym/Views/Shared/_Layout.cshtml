@@ -26,17 +26,7 @@
 
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post">
-						<i class="fas fa-door-open"></i>
-						<button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
-					</form>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-widget="fullscreen" href="#" role="button">
-						<i class="fas fa-expand-arrows-alt"></i>
-					</a>
-				</li>
+				<partial name="_SidebarPartial" />
 			</ul>
 		</nav>
 		<!-- /.navbar -->
@@ -69,8 +59,6 @@
 				<div class="container-fluid">
 					@RenderBody()
 				</div><!-- /.container-fluid -->
-				<img src="~/img/11096409_656341014466125_7520879532981737116_o.jpg">
-
 			</div>
 			<!-- /.content -->
 		</div>

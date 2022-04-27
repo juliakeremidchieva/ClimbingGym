@@ -9,34 +9,17 @@ namespace ClimbingGym.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;
-        private readonly IDistributedCache cache;
 
         public HomeController(
-            ILogger<HomeController> _logger,
-            IDistributedCache _cache)
+            ILogger<HomeController> _logger)
         {
             logger = _logger;
-            cache = _cache;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            DateTime dateTime = DateTime.Now;
-            var cachedData = await cache.GetStringAsync("cachedTime");
 
-            if (cachedData == null)
-            {
-                cachedData = dateTime.ToString();
-                DistributedCacheEntryOptions cacheOptions = new DistributedCacheEntryOptions()
-                {
-                    SlidingExpiration = TimeSpan.FromSeconds(20),
-                    AbsoluteExpiration = DateTime.Now.AddSeconds(60)
-                };
-
-                await cache.SetStringAsync("cachedTime", cachedData, cacheOptions);
-            }
-
-            return View(nameof(Index), cachedData);
+            return View();
         }
 
         public IActionResult Privacy()

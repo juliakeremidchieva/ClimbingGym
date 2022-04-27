@@ -1,0 +1,41 @@
+﻿@using ClimbingGym.Core.Models
+@model IEnumerable<SectorsListViewModel>
+@{
+}
+
+<img src="" >
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Sectors</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Sector</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var sector in Model)
+                        {
+                            <tr>
+                                <td>@sector.Name</td>
+                                <td>
+                                    <a asp-area="" asp-action="RoutesList" asp-controller="user" asp-route-id="@sector." class="btn btn-block btn-outline-info btn-xs">RoutesList</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
