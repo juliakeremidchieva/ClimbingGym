@@ -17,14 +17,14 @@ namespace ClimbingGym.Infrastructure.Data
         [StringLength(150)]
         public string? Description { get; set; }
         [Required]
-        [StringLength(7, MinimumLength = 2)]
+        [StringLength(25)]
         public string Grade { get; set; }
         [Required]
         [StringLength(25)]
         public string Color { get; set; }
         [Required]
         [Column(TypeName = "date")]
-        public DateTime DateFrom { get; set; } = DateTime.Today;
+        public DateTime DateFrom { get; set; }
         [Column(TypeName = "date")]
         public DateTime? DateTo { get; set; }
     }

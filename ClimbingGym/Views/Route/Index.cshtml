@@ -1,9 +1,9 @@
 ﻿@using ClimbingGym.Core.Models
 @model IEnumerable<SectorsListViewModel>
 @{
+	ViewData["Title"] = "Sectors";
 }
 
-<img src="" >
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -11,11 +11,10 @@
                 <h3 class="card-title">Sectors</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                        
                     </div>
                 </div>
             </div>
-
+            
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                     <thead>
@@ -29,7 +28,7 @@
                             <tr>
                                 <td>@sector.Name</td>
                                 <td>
-                                    <a asp-area="" asp-action="RoutesList" asp-controller="user" asp-route-id="@sector." class="btn btn-block btn-outline-info btn-xs">RoutesList</a>
+                                    <a asp-area="" asp-action="RoutesList" asp-controller="route" asp-route-id="@sector.SectorId" class="btn btn-block btn-outline-info btn-xs">Routes List</a>
                                 </td>
                             </tr>
                         }
