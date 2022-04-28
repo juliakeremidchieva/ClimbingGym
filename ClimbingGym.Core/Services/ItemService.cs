@@ -14,6 +14,12 @@ namespace ClimbingGym.Core.Services
         {
             repo = _repo;
         }
+
+        public async Task<Item> GetItemById(Guid id)
+        {
+            return await repo.GetByIdAsync<Item>(id);
+        }
+
         public async Task<IEnumerable<ItemsListViewModel>> GetItems()
         {
             return await repo.All<Item>()
@@ -26,6 +32,22 @@ namespace ClimbingGym.Core.Services
                     Quantity = i.Quantity
                 })
                 .ToListAsync();
+        }
+
+        public async Task<bool> RentItem(ItemsListViewModel model)
+        {
+            bool result = false;
+            var item = await repo.GetByIdAsync<Item>(model.Id);
+
+            if (item.Quantity > 0)
+            {
+                item.Quantity -= 1;
+
+                await repo.SaveChangesAsync();
+                result = true;
+            }
+
+            return result;
         }
     }
 }

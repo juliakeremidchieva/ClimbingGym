@@ -1,5 +1,5 @@
-﻿@using ClimbingGym.Core.Models
-@model IEnumerable<SectorsListViewModel>
+﻿@using ClimbingGym.Core.Models.Courses
+@model IEnumerable<CourseListViewModel>
 @{
 	ViewData["Title"] = "Courses";
 }
@@ -19,17 +19,20 @@
                 <table class="table table-hover text-nowrap">
                     <thead>
                         <tr>
-                            <th>Sector</th>
-                            <th>Routes</th>
+                            <th>Name</th>
+                            <th>Start date</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var sector in Model)
+                        @foreach (var course in Model)
                         {
                             <tr>
-                                <td>@sector.Name</td>
+                                <td>@course.Name</td>
+                                <td>@course.StartDate</td>
+                                <td>@course.Price</td>
                                 <td>
-                                    <a asp-area="" asp-action="RoutesList" asp-controller="route" asp-route-id="@sector.SectorId" class="btn btn-block btn-outline-info btn-xs">Routes List</a>
+                                    <a asp-area="" asp-action="Details" asp-controller="course" asp-route-id="@course.Id" class="btn btn-block btn-outline-info btn-xs">Details</a>
                                 </td>
                             </tr>
                         }

@@ -18,5 +18,10 @@ namespace ClimbingGym.Controllers
 
             return View(items);
         }
+        //public async Task<IActionResult> Rent(Guid id)
+        //{
+        //    var item = await service.GetItemById(id);
+        //    var hasEnoughItems = await service.RentItem(item);
+        //}
     }
 }

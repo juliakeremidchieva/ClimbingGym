@@ -19,17 +19,20 @@
                 <table class="table table-hover text-nowrap">
                     <thead>
                         <tr>
-                            <th>Sector</th>
-                            <th>Routes</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var sector in Model)
+                        @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@sector.Name</td>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Price</td>
                                 <td>
-                                    <a asp-area="" asp-action="RoutesList" asp-controller="route" asp-route-id="@sector.SectorId" class="btn btn-block btn-outline-info btn-xs">Routes List</a>
+                                    <a asp-area="" asp-action="Rent" asp-controller="item" asp-route-id="@item.Id" class="btn btn-block btn-outline-info btn-xs">Rent</a>
                                 </td>
                             </tr>
                         }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ClimbingGym.Infrastructure.Data.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ClimbingGym.Infrastructure.Data
@@ -24,5 +25,8 @@ namespace ClimbingGym.Infrastructure.Data
         public Guid CoachId { get; set; }
         [ForeignKey(nameof(CoachId))]
         public Coach Coach { get; set; }
+        [Required]
+        public int Capacity { get; set; }
+        public IList<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
     }
 }

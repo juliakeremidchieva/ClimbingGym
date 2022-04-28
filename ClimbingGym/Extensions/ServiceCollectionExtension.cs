@@ -13,6 +13,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IApplicationDbRepository, ApplicationDbRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRouteService, RouteService>();
+            services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IItemService, ItemService>();
             //services.AddScoped<IFileService, FileService>();
             //services.AddScoped<ICategoryService, CategoryService>();
 

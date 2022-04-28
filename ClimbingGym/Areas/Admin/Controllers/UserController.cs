@@ -81,25 +81,7 @@ namespace ClimbingGym.Areas.Admin.Controllers
 
             return View(model);
         }
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    var model = await service.GetUserById(id);
-
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    var model = await service.GetUserById(id);
-        //    if (ModelState.IsValid)
-        //    {
-        //        var isValid = service.DeleteUser(model);
-        //        if (isValid)
-        //        {
-
-        //        }
-        //    }
-        //}
+        
         [HttpPost]
         public async Task<IActionResult> Edit(UserEditViewModel model)
         {
