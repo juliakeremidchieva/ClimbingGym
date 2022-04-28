@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ClimbingGym.Core.Contracts;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ClimbingGym.Controllers
 {
     public class ItemController : BaseController
     {
-        public IActionResult Index()
+        private readonly IItemService service;
+
+        public ItemController(IItemService _service)
         {
-            return View();
+            service = _service;
+        }
+        public async Task<IActionResult> Index()
+        {
+
+            var items = await service.GetItems();
+
+            return View(items);
         }
     }
 }
