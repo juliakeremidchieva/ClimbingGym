@@ -19,5 +19,11 @@ namespace ClimbingGym.Controllers
             return View(sectors);
         }
 
+        public async Task<IActionResult> RoutesList(Guid id)
+        {
+            var routes = await service.GetRoutes(id);
+
+            return View(routes);
+        }
     }
 }

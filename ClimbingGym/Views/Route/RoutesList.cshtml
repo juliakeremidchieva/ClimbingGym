@@ -1,35 +1,53 @@
 ﻿@using ClimbingGym.Core.Models
-@model RoutesListViewModel
+@model IEnumerable<RoutesListViewModel>
 @{
     ViewData["Title"] = "Routes";
 }
 
 <div class="row">
-    <div class="col-4">
-        <form id="edit" method="post">
-            <input type="hidden" name="Id" value="@Model.Id" />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating">
-                <label asp-for="FirstName" class="form-label"></label>
-                <input asp-for="FirstName" class="form-control" aria-required="true" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <label asp-for="LastName" class="form-label"></label>
-                <input asp-for="LastName" class="form-control" autocomplete="current-password" aria-required="true" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="row">&nbsp;</div>
-            <div class="row">
-                <div class="col-4">
-                    <button id="login-submit" type="submit" class="btn btn-primary btn-block">Submit</button>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Routes</h3> 
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                    </div>
                 </div>
-                <!-- /.col -->
             </div>
-        </form>
+            
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                                <td>Name</td>
+                                <td>Grade</td>
+                                <td>Color</td>
+                                <td>DateFrom</td>
+                                <td>DateTo</td>
+                                <td>Description</td>
+                                <td>Sector</td>
+                                <td>Add to your routes</td>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var route in Model)
+                        {
+                            <tr>
+                                <td>@route.Name</td>
+                                <td>@route.Grade</td>
+                                <td>@route.Color</td>
+                                <td>@route.DateFrom</td>
+                                <td>@route.DateTo</td>
+                                <td>@route.Description</td>
+                                <td>@route.SectorName</td>
+                                <td>
+                                    <a asp-area="" asp-action="RoutesList" asp-controller="route" asp-route-id="@route.Id" class="btn btn-block btn-outline-info btn-xs">Add</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

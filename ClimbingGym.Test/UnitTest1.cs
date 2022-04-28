@@ -13,17 +13,17 @@ namespace ClimbingGym.Test
         [SetUp]
         public async Task Setup()
         {
-            dbContext = new InMemoryDbContext();
-            var serviceCollection = new ServiceCollection();
+            //dbContext = new InMemoryDbContext();
+            //var serviceCollection = new ServiceCollection();
 
-            serviceProvider = serviceCollection
-                .AddSingleton(sp => dbContext.CreateContext())
-                .AddSingleton<ApplicationDbRepository, ApplicationDbRepository>()
-                .AddSingleton<IOrderService, OrderService>()
-                .BuildServiceProvider();
+            //serviceProvider = serviceCollection
+            //    .AddSingleton(sp => dbContext.CreateContext())
+            //    .AddSingleton<ApplicationDbRepository, ApplicationDbRepository>()
+            //    .AddSingleton<IOrderService, OrderService>()
+            //    .BuildServiceProvider();
 
-            var repo = serviceProvider.GetService<IApplicationDbRepository>();
-            await SeedDbAsync(repo);
+            //var repo = serviceProvider.GetService<IApplicationDbRepository>();
+            //await SeedDbAsync(repo);
         }
 
         //[Test]

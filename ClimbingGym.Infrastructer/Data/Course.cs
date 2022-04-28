@@ -19,6 +19,7 @@ namespace ClimbingGym.Infrastructure.Data
         [Required]
         [Column(TypeName = "decimal(5, 2)")]
         public decimal Price { get; set; }
+        public string? Description { get; set; }
         [Required]
         public Guid CoachId { get; set; }
         [ForeignKey(nameof(CoachId))]

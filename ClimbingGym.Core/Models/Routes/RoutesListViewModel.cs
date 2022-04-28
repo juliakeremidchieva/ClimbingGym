@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ClimbingGym.Infrastructure.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClimbingGym.Core.Models
 {
@@ -6,6 +7,7 @@ namespace ClimbingGym.Core.Models
     {
         public Guid Id { get; set; }
         public Guid SectorId { get; set; }
+        public string SectorName { get; set; }
         [Required]
         public string Name { get; set; }
         [StringLength(150)]
