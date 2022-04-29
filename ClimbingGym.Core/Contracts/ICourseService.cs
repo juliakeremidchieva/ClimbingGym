@@ -6,5 +6,8 @@ namespace ClimbingGym.Core.Contracts
     {
         Task<IEnumerable<CourseListViewModel>> GetCourses();
         Task<CourseDetailViewModel> GetCourse(Guid id);
+        Task<CoachViewModel> GetCoach(Guid id);
+        Task<IEnumerable<CourseListViewModel>> GetCoachCourses(Guid id);
+
     }
 }

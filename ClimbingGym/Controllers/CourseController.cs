@@ -26,5 +26,18 @@ namespace ClimbingGym.Controllers
 
             return View(course);
         }
+
+        public async Task<IActionResult> Coach(Guid id)
+        {
+            var coach = await service.GetCoach(id);
+
+            return View(coach);
+        }
+
+        public async Task<IActionResult> CoachCourses(Guid id)
+        {
+            var coachCourses = await service.GetCoachCourses(id);
+            return View(coachCourses);
+        }
     }
 }

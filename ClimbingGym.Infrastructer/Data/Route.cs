@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ClimbingGym.Infrastructure.Data.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ClimbingGym.Infrastructure.Data
@@ -27,5 +28,7 @@ namespace ClimbingGym.Infrastructure.Data
         public DateTime DateFrom { get; set; }
         [Column(TypeName = "date")]
         public DateTime? DateTo { get; set; }
+        public IList<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
+
     }
 }

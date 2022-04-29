@@ -1,0 +1,44 @@
+﻿@using ClimbingGym.Core.Models.Courses
+@model IEnumerable<CourseListViewModel>
+@{
+	ViewData["Title"] = "Courses";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Courses</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Start date</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var course in Model)
+                        {
+                            <tr>
+                                <td>@course.Name</td>
+                                <td>@course.StartDate</td>
+                                <td>@course.Price</td>
+                                <td>
+                                    <a asp-area="" asp-action="Details" asp-controller="course" asp-route-id="@course.Id" class="btn btn-block btn-outline-info btn-xs">Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

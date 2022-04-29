@@ -17,7 +17,7 @@
 							<div class="post">
 								<div class="user-block">
 									<span class="username">
-										<a href="/Coach">Coach: @Model.CoachName</a>
+										<a asp-area="" asp-action="Coach" asp-controller="course" asp-route-id="@Model.CoachId" >Coach: @Model.CoachName</a>
 									</span>
 									<span class="description">Starts on @Model.StartDate and ends on @Model.EndDate</span>
 								</div>

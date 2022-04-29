@@ -4,16 +4,18 @@ using ClimbingGym.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ClimbingGym.Infrastructure.Data.Migrations
+namespace ClimbingGym.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220429114127_AddingCoursesToUsers")]
+    partial class AddingCoursesToUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,21 +37,6 @@ namespace ClimbingGym.Infrastructure.Data.Migrations
                     b.HasIndex("UsersId");
 
                     b.ToTable("ApplicationUserCourse");
-                });
-
-            modelBuilder.Entity("ApplicationUserRoute", b =>
-                {
-                    b.Property<Guid>("RoutesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("RoutesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("ApplicationUserRoute");
                 });
 
             modelBuilder.Entity("ClimbingGym.Infrastructure.Data.Card", b =>
@@ -242,6 +229,9 @@ namespace ClimbingGym.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Color")
                         .IsRequired()
                         .HasMaxLength(25)
@@ -271,6 +261,8 @@ namespace ClimbingGym.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("SectorId");
 
@@ -445,21 +437,6 @@ namespace ClimbingGym.Infrastructure.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ApplicationUserRoute", b =>
-                {
-                    b.HasOne("ClimbingGym.Infrastructure.Data.Route", null)
-                        .WithMany()
-                        .HasForeignKey("RoutesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClimbingGym.Infrastructure.Data.Identity.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ClimbingGym.Infrastructure.Data.Course", b =>
                 {
                     b.HasOne("ClimbingGym.Infrastructure.Data.Coach", "Coach")
@@ -473,6 +450,10 @@ namespace ClimbingGym.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("ClimbingGym.Infrastructure.Data.Route", b =>
                 {
+                    b.HasOne("ClimbingGym.Infrastructure.Data.Identity.ApplicationUser", null)
+                        .WithMany("Routes")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("ClimbingGym.Infrastructure.Data.Sector", "Sector")
                         .WithMany("Routes")
                         .HasForeignKey("SectorId")
@@ -536,6 +517,11 @@ namespace ClimbingGym.Infrastructure.Data.Migrations
             modelBuilder.Entity("ClimbingGym.Infrastructure.Data.Coach", b =>
                 {
                     b.Navigation("Coureses");
+                });
+
+            modelBuilder.Entity("ClimbingGym.Infrastructure.Data.Identity.ApplicationUser", b =>
+                {
+                    b.Navigation("Routes");
                 });
 
             modelBuilder.Entity("ClimbingGym.Infrastructure.Data.Sector", b =>

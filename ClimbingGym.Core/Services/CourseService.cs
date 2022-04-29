@@ -15,12 +15,26 @@ namespace ClimbingGym.Core.Services
             repo = _repo;
         }
 
-        public async Task<CourseDetailViewModel> GetCourse(Guid id)
+        public async Task<CoachViewModel> GetCoach(Guid id)
+        {
+            return await repo.All<Coach>()
+                   .Where(c => c.Id == id)
+                    .Select(c => new CoachViewModel()
+                    {
+                        Id = c.Id,
+                        Introduction = c.Introduction,
+                        Name = c.Name,
+                        YearsOfExperience = c.YearsOfExperience
+                    })
+                .FirstAsync();
+
+        }
+
+        public async Task<IEnumerable<CourseListViewModel>> GetCoachCourses(Guid id)
         {
             return await repo.All<Course>()
-                .Where(c => c.Id == id)
-                .Include(c => c.Coach)
-                .Select(c => new CourseDetailViewModel()
+                .Where(c => c.CoachId == id)
+                .Select(c => new CourseListViewModel()
                 {
                     Id = c.Id,
                     CoachId = c.CoachId,
@@ -28,6 +42,25 @@ namespace ClimbingGym.Core.Services
                     Name = c.Name,
                     Description = c.Description,
                     EndDate = c.EndDate,
+                    Price = c.Price,
+                    StartDate = c.StartDate
+                })
+                .ToListAsync();
+        }
+
+        public async Task<CourseDetailViewModel> GetCourse(Guid id)
+        {
+            return await repo.All<Course>()
+                .Where(c => c.Id == id)
+                .Include(c => c.Coach)
+                .Select(c => new CourseDetailViewModel()
+                {
+                    Name = c.Name,
+                    EndDate = c.EndDate,
+                    CoachId = c.CoachId,
+                    CoachName = c.Coach.Name,
+                    Description = c.Description,
+                    Id = c.Id,
                     Price = c.Price,
                     StartDate = c.StartDate
                 })
