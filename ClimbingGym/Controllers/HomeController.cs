@@ -1,7 +1,5 @@
-﻿using ClimbingGym.Core.Constants;
-using ClimbingGym.Models;
+﻿using ClimbingGym.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
 using System.Diagnostics;
 
 namespace ClimbingGym.Controllers

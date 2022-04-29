@@ -29,6 +29,5 @@ namespace ClimbingGym.Controllers
         { 
             return View();
         }
-        
     }
 }

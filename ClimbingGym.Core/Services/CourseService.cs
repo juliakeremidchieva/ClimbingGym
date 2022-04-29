@@ -14,6 +14,26 @@ namespace ClimbingGym.Core.Services
         {
             repo = _repo;
         }
+
+        public async Task<CourseDetailViewModel> GetCourse(Guid id)
+        {
+            return await repo.All<Course>()
+                .Where(c => c.Id == id)
+                .Include(c => c.Coach)
+                .Select(c => new CourseDetailViewModel()
+                {
+                    Id = c.Id,
+                    CoachId = c.CoachId,
+                    CoachName = c.Coach.Name,
+                    Name = c.Name,
+                    Description = c.Description,
+                    EndDate = c.EndDate,
+                    Price = c.Price,
+                    StartDate = c.StartDate
+                })
+                .FirstAsync();
+        }
+
         public async Task<IEnumerable<CourseListViewModel>> GetCourses()
         {
             return await repo.All<Course>()

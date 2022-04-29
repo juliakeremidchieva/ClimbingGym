@@ -1,6 +1,8 @@
 ﻿using ClimbingGym.Core.Contracts;
 using ClimbingGym.Core.Models;
+using ClimbingGym.Core.Models.Routes;
 using ClimbingGym.Infrastructure.Data;
+using ClimbingGym.Infrastructure.Data.Identity;
 using ClimbingGym.Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -15,6 +17,16 @@ namespace ClimbingGym.Core.Services
         {
             repo = _repo;
         }
+
+        public Task<bool> AddRoute(UserRoutesListViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public async Task<bool> AddRoute(UserRoutesListViewModel model)
+        //{
+        //    var userRoute = await repo.All<ApplicationUser>();
+        //}
 
         public async Task<IEnumerable<RoutesListViewModel>> GetRoutes(Guid sectorId)
         {

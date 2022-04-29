@@ -5,5 +5,6 @@ namespace ClimbingGym.Core.Contracts
     public interface ICourseService
     {
         Task<IEnumerable<CourseListViewModel>> GetCourses();
+        Task<CourseDetailViewModel> GetCourse(Guid id);
     }
 }

@@ -11,5 +11,6 @@ namespace ClimbingGym.Infrastructure.Data.Identity
 
         [StringLength(50)]
         public string? LastName { get; set; }
+        public IList<Route> Routes { get; set; } = new List<Route>();
     }
 }
