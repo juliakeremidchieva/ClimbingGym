@@ -34,20 +34,17 @@ namespace ClimbingGym.Core.Services
                 .ToListAsync();
         }
 
-        public async Task<bool> RentItem(ItemsListViewModel model)
+        public async Task<bool> RentItem(Item item)
         {
-            bool result = false;
-            var item = await repo.GetByIdAsync<Item>(model.Id);
-
+            var hasEnoughItems = false;
             if (item.Quantity > 0)
             {
                 item.Quantity -= 1;
-
                 await repo.SaveChangesAsync();
-                result = true;
+                hasEnoughItems = true;
             }
 
-            return result;
+            return hasEnoughItems;
         }
     }
 }

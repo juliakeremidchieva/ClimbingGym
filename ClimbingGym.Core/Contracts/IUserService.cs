@@ -10,7 +10,6 @@ namespace ClimbingGym.Core.Contracts
         Task<UserEditViewModel> GetUserForEdit(string id);
 
         Task<bool> UpdateUser(UserEditViewModel model);
-        //Task<bool> DeleteUser(UserListViewModel model);
 
         Task<ApplicationUser> GetUserById(string id);
     }

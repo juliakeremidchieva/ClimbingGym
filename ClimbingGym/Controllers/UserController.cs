@@ -1,7 +1,5 @@
-﻿using ClimbingGym.Core.Constants;
-using ClimbingGym.Core.Contracts;
+﻿using ClimbingGym.Core.Contracts;
 using ClimbingGym.Infrastructure.Data.Identity;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

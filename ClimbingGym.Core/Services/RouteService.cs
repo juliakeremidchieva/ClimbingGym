@@ -19,31 +19,9 @@ namespace ClimbingGym.Core.Services
             repo = _repo;
         }
 
-        public Task<bool> AddRoute(UserRoutesListViewModel model)
+        public async Task<Route> GetRouteById(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<bool> AddRoute(UserRoutesListViewModel model, string userId)
-        {
-            var routes = await repo.All<ApplicationUser>()
-                .Include(u => u.Routes)
-                .Where(u => u.Id == userId)
-                .Select(u => u.Routes == new Route()
-                {
-                    Id = model.Id,
-                    SectorId = model.SectorId,
-                    Color = model.Color,
-                    DateFrom = model.DateFrom,
-                    DateTo = model.DateTo,
-                    Description = model.Description,
-                    Grade = model.Grade,
-                    Name = model.Name,
-                })
-                .FirstAsync();
-
-            await repo.SaveChangesAsync();
-            return routes;
+            return await repo.GetByIdAsync<Route>(id);
         }
 
         public async Task<IEnumerable<RoutesListViewModel>> GetRoutes(Guid sectorId)
