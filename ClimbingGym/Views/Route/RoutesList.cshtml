@@ -1,4 +1,7 @@
 ﻿@using ClimbingGym.Core.Models
+@using ClimbingGym.Infrastructure.Data.Identity
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager;
 @model IEnumerable<RoutesListViewModel>
 @{
     ViewData["Title"] = "Routes";
@@ -41,7 +44,7 @@
                                 <td>@route.Description</td>
                                 <td>@route.SectorName</td>
                                 <td>
-                                    <a asp-area="" asp-action="RoutesList" asp-controller="route" asp-route-id="@route.Id" class="btn btn-block btn-outline-info btn-xs">Add</a>
+                                    <a asp-area="" asp-action="RoutesList" asp-controller="route" asp-route-id="@route.Id" asp-route-userId="@User.Identity?.Name" class="btn btn-block btn-outline-info btn-xs">Add</a>
                                 </td>
                             </tr>
                         }
